@@ -1,0 +1,25 @@
+CACHE MANIFEST
+
+# Prototype - 20130424#persitance-update1
+
+CACHE:
+index.html
+
+scripts/app.js
+scripts/lib/pouchdb-nightly.min.js
+scripts/lib/angular.min.js
+scripts/lib/bootstrap.min.js
+
+style/bootstrap-responsive.min.css
+style/bootstrap.min.css
+
+img/glyphicons-halflings-white.png
+img/glyphicons-halflings.png
+
+templates/match.html
+templates/new-match.html
+templates/player.html
+templates/stats.html
+
+NETWORK:
+*

@@ -1,0 +1,51 @@
+<form class="form-horizontal">
+  <button ng-hide="match.ended" class="btn btn-inverse pull-right" ng-click="endMatch()">End match</button>
+  <fieldset ng-hide="match.ended">
+    <legend><b>{{playerOne.properties.name}}</b> <em>vs</em> <b>{{playerTwo.properties.name}}</b></legend>
+    <div class="control-group">
+      <label class="control-label">Looser</label>
+      <div class="controls">
+        <div class="btn-group">
+          <button ng-click="looser=playerOne" ng-class="{'btn-info': isPlayerSelected(playerOne)}" class="btn btn-large">{{playerOne.properties.name}}</button>
+          <button ng-click="looser=playerTwo" ng-class="{'btn-info': isPlayerSelected(playerTwo)}" class="btn btn-large">{{playerTwo.properties.name}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Shots</label>
+      <div class="controls">
+        <div class="btn-group">
+          <button ng-click="shots=1" ng-class="{'btn-info': isShotSelected(1)}" class="btn btn-large">1</button>
+          <button ng-click="shots=2" ng-class="{'btn-info': isShotSelected(2)}" class="btn btn-large">2</button>
+          <button ng-click="shots=3" ng-class="{'btn-info': isShotSelected(3)}" class="btn btn-large">3</button>
+          <button ng-click="shots=4" ng-class="{'btn-info': isShotSelected(4)}" class="btn btn-large">4</button>
+          <button ng-click="shots=5" ng-class="{'btn-info': isShotSelected(5)}" class="btn btn-large">5+</button>
+        </div>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button ng-click="addPlay()" class="btn btn-primary btn-large" ng-disabled="!looser || !shots">Add</button>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend><b>Match History</b><span ng-show="match.ended">: {{playerOne.properties.name}} <em>vs</em> {{playerTwo.properties.name}}</span></legend>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Looser</th>
+          <th>Shots</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="play in match.plays">
+          <td>{{$index}}</td>
+          <td>{{getPlayerName(play.looser)}}</td>
+          <td>{{play.shots}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </fieldset>
+</form>

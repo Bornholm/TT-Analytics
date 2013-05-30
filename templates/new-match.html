@@ -1,0 +1,22 @@
+<form class="form-horizontal">
+  <fieldset>
+    <legend>New match</legend>
+    <div class="control-group">
+      <label class="control-label">Player One</label>
+      <div class="controls">
+        <select ng-model="playerOne" ng-options="p.properties.name for p in availablePlayers" required></select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Player Two</label>
+      <div class="controls">
+        <select ng-model="playerTwo" ng-options="p.properties.name for p in availablePlayers" required></select>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button class="btn btn-primary btn-large" ng-click="startMatch()" ng-disabled="!playerOne || !playerTwo">Start match</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

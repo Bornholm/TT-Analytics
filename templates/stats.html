@@ -1,0 +1,24 @@
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Matches History</legend>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Player One</th>
+        <th>Player Two</th>
+        <th>More</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="m in matches">
+        <td>{{$index}}</td>
+        <td><a href="#/player/{{m.playerOne}}">{{getPlayerName(m.playerOne)}}</a></td>
+        <td><a href="#/player/{{m.playerTwo}}">{{getPlayerName(m.playerTwo)}}</a></td>
+        <td><a href="#/match/{{m._id}}">Review Match</a></td>
+      </tr>
+    </tbody>
+    </table>
+  </fieldset>
+</form>
+
